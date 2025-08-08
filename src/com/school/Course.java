@@ -1,25 +1,17 @@
 package com.school;
 
 public class Course {
-    private String code;
-    private String title;
+    private static int nextCourseIdCounter = 101;
 
-    public Course(String code, String title) {
-        this.code = code;
-        this.title = title;
+    private int courseId;
+    private String courseName;
+
+    public Course(String courseName) {
+        this.courseId = nextCourseIdCounter++;
+        this.courseName = courseName;
     }
 
-    public String getCode() {
-        return code;
+    public void displayDetails() {
+        System.out.println("Course ID: " + this.courseId + ", Name: " + this.courseName);
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "code='" + code + '\'' + ", title='" + title + '\'' +'}';
-    }
-} 
+}
