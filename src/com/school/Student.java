@@ -1,24 +1,17 @@
 package com.school;
 
 public class Student {
-    private final int id;
-    private  final String name;
+    private static int nextStudentIdCounter = 1;
 
-    public Student(int id, String name) {
-        this.id = id;
+    int studentId;
+    String name;
+
+    public Student(String name) {
+        this.studentId = nextStudentIdCounter++;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public void displayDetails() {
+        System.out.println("Student ID: " + this.studentId + ", Name: " + this.name);
     }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" + "id=" + id +", name='" + name + '\'' +'}';
-    }
-} 
+}
