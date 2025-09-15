@@ -60,6 +60,28 @@ public class Main {
       record.displayRecord();
     }
 
-    System.out.println("\nPart 5: Person Hierarchy & Inheritance Implementation Complete.");
+    // --- Part 6: File Storage Implementation ---
+    System.out.println("\n--- Part 6: File Storage Implementation ---");
+    
+    // Create and populate ArrayLists
+    ArrayList<Student> students = new ArrayList<>();
+    students.add(student1);
+    students.add(student2);
+    
+    ArrayList<Course> courses = new ArrayList<>();
+    courses.add(course1);
+    
+    ArrayList<AttendanceRecord> records = new ArrayList<>();
+    records.addAll(attendanceLog);
+    
+    // Create FileStorageService instance
+    FileStorageService fileService = new FileStorageService();
+    
+    // Save data to files
+    fileService.saveData(students, "students.txt");
+    fileService.saveData(courses, "courses.txt");
+    fileService.saveData(records, "attendance_log.txt");
+
+    System.out.println("\nPart 6: File Storage Implementation Complete.");
   }
 }
