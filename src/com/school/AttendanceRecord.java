@@ -2,14 +2,14 @@
 package com.school;
 
 public class AttendanceRecord implements Storable {
-  private int studentId;
-  private int courseId;
+  private Student student;
+  private Course course;
   private String status;
 
   // Constructor
-  public AttendanceRecord(int studentId, int courseId, String status) {
-    this.studentId = studentId;
-    this.courseId = courseId;
+  public AttendanceRecord(Student student, Course course, String status) {
+    this.student = student;
+    this.course = course;
 
     if ("Present".equalsIgnoreCase(status) || "Absent".equalsIgnoreCase(status)) {
       this.status = status;
@@ -19,12 +19,12 @@ public class AttendanceRecord implements Storable {
     }
   }
 
-  public int getStudentId() {
-    return studentId;
+  public Student getStudent() {
+    return student;
   }
 
-  public int getCourseId() {
-    return courseId;
+  public Course getCourse() {
+    return course;
   }
 
   public String getStatus() {
@@ -32,11 +32,12 @@ public class AttendanceRecord implements Storable {
   }
 
   public void displayRecord() {
-    System.out.println("Attendance: Student ID" + studentId + " in Course ID C" + courseId + " - Status: " + status);
+    System.out.println("Attendance: " + student.getName() + " (ID: " + student.getId() + ") in " + 
+                      course.getCourseName() + " (Course ID: C" + course.getCourseId() + ") - Status: " + status);
   }
 
   @Override
   public String toDataString() {
-    return studentId + "," + courseId + "," + status;
+    return student.getId() + "," + course.getCourseId() + "," + status;
   }
 }
