@@ -1,4 +1,2 @@
 101,Introduction to Programming
 102,Advanced Mathematics
-103,Physics Fundamentals
-104,English Literature
